@@ -1,0 +1,78 @@
+/* 清除默认边距，加入桌布 */
+body {
+  margin: 0;
+  background-image: url("../images/RollingWaves.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+}
+
+/* 状态栏外框 */
+.statusbar {
+    position: relative;
+
+    display: flex;
+    height: 40px;
+    margin: 5px 5px;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    
+}
+
+/* 状态栏内小星星 */
+.star {
+    position: absolute;
+    color: #FFF;
+    font-size: 30px;
+
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.star::after {
+    content: "";
+    position: absolute;
+
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(100, 100, 100, 0.3);
+    z-index: -1;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.star:hover::after {
+    opacity: 1;
+}
+
+/* 左上角两行字 */
+.left-info {
+    position: absolute;
+    
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+    color: rgba(255, 255, 255, 0.9);
+    font-family: ui-sans-serif, system-ui;
+    
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+
+}
+
+.left-info .line1 {
+    font-size: 12px;
+}
+
+.left-info .line2 {
+    font-size: 15px;
+    font-weight: 600;
+}
