@@ -7,27 +7,42 @@ body {
   background-attachment: fixed;  
 }
 
+
 /* 状态栏外框 */
 .statusbar {
     position: relative;
-
     display: flex;
+    align-items: center;
+    justify-items: center;
+
+    padding: 0 25px;
+    gap: 8px;
+
     height: 40px;
     margin: 5px 5px;
     border-radius: 15px;
-    background: rgba(0, 0, 0, 0.8);
-    
+    background: rgba(0, 0, 0, 0.85);
 }
+
+/* 状态栏分组 - 左 */
+.left-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-right: auto;
+}
+
 
 /* 状态栏内小星星 */
 .star {
-    position: absolute;
+    position: relative;
+    cursor: pointer;
+
+    z-index: 1;
+
     color: #FFF;
     font-size: 30px;
-
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
 }
 
 .star::after {
@@ -52,27 +67,92 @@ body {
     opacity: 1;
 }
 
-/* 左上角两行字 */
+
+/* 状态栏左上角两行字 */
 .left-info {
-    position: absolute;
-    
     display: flex;
     flex-direction: column;
-    line-height: 1.1;
-    color: rgba(255, 255, 255, 0.9);
-    font-family: ui-sans-serif, system-ui;
-    
-    left: 5px;
-    top: 50%;
-    transform: translateY(-50%);
+    justify-content: center;
 
+    margin-left: 10px;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: ui-sans-serif, system-ui;
 }
 
 .left-info .line1 {
-    font-size: 12px;
+    font-size: 10px;
+    opacity: 0.75;
 }
 
 .left-info .line2 {
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 400;
+}
+
+/* 状态栏分组 - 中 */
+.center-group {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    gap: 6px;
+
+
+}
+
+/* 实时数据组件 - 背景 */
+.live-block {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    gap: 2px;
+
+    height: 30px;
+    width: 340px;
+    padding: 0 12px;
+    background: rgba(100, 100, 100, 0.1);
+    border-radius: 12px;
+}
+
+/* 桌面预览组件 - 背景 */
+.desktop-preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+
+    height: 26px;
+    min-width: 180px;
+    padding: 0 2px;
+    
+    background: rgba(100, 100, 100, 0.4);
+    border-radius: 12px;
+}
+
+/* 时钟小组件 - 背景 */
+.time-tools {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    gap: 2px;
+
+    height: 30px;
+    width: 340px;
+    padding: 0 12px;
+    background: rgba(100, 100, 100, 0.1);
+    border-radius: 12px;
+}
+
+/* 状态栏分组 - 右 */
+.right-group {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    gap: 2px;
+
+    margin-left: auto;
 }
