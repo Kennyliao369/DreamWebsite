@@ -1,12 +1,18 @@
 /* 清除默认边距，加入桌布 */
 body {
-  margin: 0;
-  background-image: url("../images/RollingWaves.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  
-  font-family: ui-sans-serif, system-ui;
+    background-image: url("../images/RollingWaves.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 10px);
+    min-width: calc(100vw - 10px);
+    margin: 5px;
+    gap: 5px;
+
+    font-family: ui-sans-serif, system-ui;
 }
 
 
@@ -21,7 +27,6 @@ body {
     gap: 8px;
 
     height: 40px;
-    margin: 5px 5px 0px 5px;
     border-radius: 15px;
     background: rgba(0, 0, 0, 0.85);
 
@@ -328,14 +333,13 @@ body {
     display: grid;
     grid-template-columns: repeat(16, 1fr);
     grid-template-rows: repeat(16, 1fr);
-
-    min-height: calc(100vh - 55px);
+    flex: 1 1 auto; 
     gap: 5px;
-    padding: 5px;
 }
 
 /* 套用布局变数 */
 .panel {
+    display: flex;
     grid-column: var(--col) / span var(--w, 3);
     grid-row:    var(--row) / span var(--h, 1);
 
@@ -359,7 +363,8 @@ body {
 .browser{
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    flex: 1 1 auto;
+    
     padding: 2px;
 }
 
@@ -371,7 +376,7 @@ body {
 
     height: 32px;
     gap: 6px;
-    margin: 2px 2px 0px 2px;
+    margin: 2px 2px 4px 2px;
 }
 
 .tab-bar .tab-menu {
@@ -408,6 +413,10 @@ body {
 
     color: rgb(230, 230, 230);
     font-size: 14px;
+}
+
+.tab-bar .tab:hover {
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .tab-bar .tab .tab-img {
@@ -470,10 +479,11 @@ body {
 .search-bar{
     display: flex;
     align-items: center;
-    gap: 8px;
-
+    
     height: 35px;
     padding: 4px 4px;
+    margin-top: 4px;
+    gap: 8px;
     
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -594,4 +604,127 @@ body {
 
 .search-bar .avatar:hover {
     background: rgba(255, 255, 255, 0.3);
+}
+
+
+/* 浏览器主页面 */
+.browser-body{
+    display:flex;
+    flex: 1;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(6px);
+  
+}
+
+/* 左侧工具列外观 */
+.left-bar {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    
+    width: 40px;
+    padding: 5px;
+
+    gap:5px;
+    bottom: 0px;
+
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: 1px solid rgba(255,255,255, 0.1);
+    
+    flex-grow: 0;  
+    flex-shrink: 0;
+
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(6px);
+    
+    transition: width 0.25s ease;
+}
+
+.left-bar:hover {
+    width: 250px;
+}
+
+
+/* 按钮外观 */
+.left-bar button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 100%;
+    height: 40px;
+
+    border: none;
+    background: transparent;
+    border-radius: 10px;
+    padding: 10px;
+    gap: 10px;
+
+    transition: background .2s ease;
+}
+
+.left-bar button img {
+    width: 18px;
+    height: 18px;
+}
+
+.left-bar button span {
+    flex: 1;
+    white-space: nowrap; 
+    overflow: hidden;     
+
+    font-size: 14px;
+    text-align: start;
+    color: rgb(230, 230, 230);
+    mask-image: linear-gradient(to right, white 80%, transparent 100%);
+}
+
+.left-bar button:hover{
+    background: rgba(255,255,255,0.18);
+}
+
+
+.left-bar .left-bar-end {
+    margin-top: auto;
+    height: 50px; 
+    padding: 5px;
+    gap: 0px;
+}
+
+.left-bar .left-bar-end img {
+    width: 30px; 
+    height: 30px; 
+    border-radius: 50%;   
+    
+    background: rgba(255, 255, 255 ,0.2);
+}
+
+.left-bar .left-bar-end span {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.page-content {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    padding: 20px;
+
+    color: rgba(230, 230, 230, 0.9);
+}
+
+.page-content h1 {
+    text-align: center;
+    padding: 20px;
+}
+
+.page-content p {
+    text-align: left;
+    font-size: large;
+    padding: 0 15% 0 15%;
 }

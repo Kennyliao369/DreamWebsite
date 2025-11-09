@@ -88,16 +88,47 @@
                 <button class="icon-btn">⋯</button>
             </div>
             
-            <main class="main-page">
-            <nav class="left-bar">
+            <main class="browser-body">
+                <nav class="left-bar">
+                    <button data-page="about"><img src="./images/contents.ico"><span>About This Theme</span></button>
+                    <button data-page="why"><img src="./images/contents.ico"><span>Why I Choose This Theme?</span></button>
+                    <button data-page="features"><img src="./images/contents.ico"><span>Theme Features</span></button>
+                    <button data-page="message"><img src="./images/contents.ico"><span>Message from Creator</span></button>
+                    <button data-page="image"><img src="./images/contents.ico"><span>Image Source</span></button>
 
+                    <button class="left-bar-end" data-page="profile"><img src="./images/me-small-nbg.ico"><span>KennyCS</span></button>
+                </nav>
+                <section class="page-content">
 
-            </nav>
+                </section>
             </main>
         </main>
         </section>
     </main>
 
-    <script src="./script/script.js"></script>
+    <script>
+        const content = document.querySelector(".page-content");
+
+        function showPage(name) {
+            content.innerHTML = pages[name];
+        }
+
+        document.querySelectorAll(".left-bar button").forEach(btn => {
+            btn.addEventListener("click", () => {
+                showPage(btn.dataset.page);
+            });
+        });
+
+        const pages = {
+            about:    "<h1>About This Theme</h1><p>你的说明内容...</p>",
+            why:      "<h1>Why I Choose This Theme?</h1><p>你的说明内容...</p>",
+            features: "<h1>Theme Features</h1><p>你的说明内容...</p>",
+            message:  "<h1>Message from Creator</h1><p>你的说明内容...</p>",
+            image:    "<h1>Image Source</h1><p>你的说明内容...</p>",
+            profile:  "<h1>KennyCS</h1><p>你的自我介绍内容...</p>"
+        };
+
+        showPage("about");
+    </script>
 </body>
 </html>
