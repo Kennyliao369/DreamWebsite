@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="desktop-preview">
-                <img src="./images/google.ico" active="on">
+                <img src="./images/google.ico" active="yes">
                 <img src="./images/google.ico">
                 <img src="./images/vscode.ico">
                 <img src="./images/vscode.ico">
@@ -59,12 +59,44 @@
     </header>
 
     <main class="main-layout">
-        <section class="panel" style="--col:1; --row:1; --w:8; --h:16;">A</section>
-        <section class="panel" style="--col:9; --row:1; --w:8; --h:8;">B</section>
-        <section class="panel" style="--col:9; --row:9; --w:4; --h:8;">C</section>
-        <section class="panel" style="--col:13; --row:9; --w:4; --h:8;">D</section>
-    </main>
+        <section class="panel" style="--col:1; --row:1; --w:16; --h:16;">
+        <main class="browser">
+            <nav class="tab-bar">
+                <button class="tab-menu">˅</button>
+                <button class="tab" active="yes">
+                    <img class="tab-img" src="./images/linux.ico">
+                    <span class="tab-title">About This Theme</span>
+                    <span class="tab-close">☓</span>
+                </button>
+                <button class="tab-close-all">☓</button>
+            </nav>
 
+            <div class="search-bar">
+                <button class="icon-btn">←</button>
+                <button class="icon-btn">→</button>
+                <button class="icon-btn">↻</button>
+                <form class="search-box" onsubmit="return ;">
+                    <span class="site-badge">ⓘ</span>
+                    <input type="text" placeholder="Search or type a URL" />
+                    <button class="bookmark">☆</button>
+                </form>
+                <button class="icon-btn">⋯</button>
+                <div class="sep"></div>
+                <button class="icon-btn">⬇</button>
+                <div class="sep"></div>
+                <img class="avatar" src="./images/me-small-nbg.ico">
+                <button class="icon-btn">⋯</button>
+            </div>
+            
+            <main class="main-page">
+            <nav class="left-bar">
+
+
+            </nav>
+            </main>
+        </main>
+        </section>
+    </main>
 
     <script src="./script/script.js"></script>
 </body>

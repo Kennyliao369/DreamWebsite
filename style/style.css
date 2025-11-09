@@ -4,7 +4,9 @@ body {
   background-image: url("../images/RollingWaves.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;  
+  background-attachment: fixed;
+  
+  font-family: ui-sans-serif, system-ui;
 }
 
 
@@ -15,7 +17,7 @@ body {
     align-items: center;
     justify-items: center;
 
-    padding: 0 18px;
+    padding: 0 10px;
     gap: 8px;
 
     height: 40px;
@@ -24,7 +26,6 @@ body {
     background: rgba(0, 0, 0, 0.85);
 
     cursor: default;
-    font-family: ui-sans-serif, system-ui;
 }
 
 /* 状态栏分组 - 左 */
@@ -39,36 +40,27 @@ body {
 
 /* 状态栏内小星星 */
 .star {
-    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-
+    
     margin-left: 7px;
     z-index: 1;
 
     color: #FFF;
     font-size: 30px;
-}
-
-.star::after {
-    content: "";
-    position: absolute;
 
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background: rgba(100, 100, 100, 0.3);
-    z-index: -1;
+    background: transparent;
 
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    
-    opacity: 0;
-    transition: opacity 0.2s ease;
+    transition: background 0.2s ease;
 }
 
-.star:hover::after {
-    opacity: 1;
+.star:hover {
+    background: rgba(100, 100, 100, 0.3);
 }
 
 
@@ -78,7 +70,7 @@ body {
     flex-direction: column;
     justify-content: center;
 
-    margin-left: 10px;
+    margin-left: 4px;
     line-height: 1;
     color: rgba(255, 255, 255, 0.8);
 }
@@ -191,7 +183,6 @@ body {
 }
 
 
-
 /* 桌面预览组件 - 背景 */
 .desktop-preview {
     display: flex;
@@ -219,11 +210,10 @@ body {
     cursor: pointer;
 }
 
-.desktop-preview img[active="on"] {
+.desktop-preview img[active="yes"] {
     cursor: default;
     background: rgba(230, 230, 240, 0.9);
 }
-
 
 
 /* 时钟小组件 - 背景 */
@@ -298,7 +288,7 @@ body {
     display: flex;
     align-items: center;
 
-    margin-left: auto;
+    margin-right: 8px;
 }
 
 /* 键盘图示 */
@@ -310,15 +300,17 @@ body {
 
 /* 右邊膠囊容器 */
 .system-ctl {
-  display:flex;
-  align-items:center;
-  gap:14px;                     
-  padding:4px 12px;            
-  height: 25px;
-  background:rgba(100, 100, 100, 0);
-  border-radius:20px;
+    display:flex;
+    align-items:center;
+              
+    height: 25px;
 
-  transition: background 0.2s ease;
+    gap:14px;                     
+    padding:4px 12px;
+    background:rgba(100, 100, 100, 0);
+    border-radius:20px;
+
+    transition: background 0.2s ease;
 }
 
 .system-ctl:hover {
@@ -353,10 +345,253 @@ body {
     backdrop-filter: blur(6px);
 
     padding: 2px;
+    overflow: hidden; 
 
     transition: border-color 0.25s ease;
 }
 
 .panel:hover {
     border-color: rgba(255,255,255,0.3);
+}
+
+
+/* 浏览器 */
+.browser{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 2px;
+}
+
+
+/* 浏览器 - 页面选择*/
+.tab-bar{
+    display: flex;
+    align-items: center;
+
+    height: 32px;
+    gap: 6px;
+    margin: 2px 2px 0px 2px;
+}
+
+.tab-bar .tab-menu {
+    height: 32px;
+    width: 32px;
+
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 10px;
+
+    color: rgb(230, 230, 230);
+    font-size: 14px;
+
+    transition: background 0.2s ease;
+}
+
+.tab-bar .tab-menu:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.tab-bar .tab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 6px 6px;
+    height: 32px;
+    width: 200px;
+    margin: 4px;
+
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 10px;
+
+    color: rgb(230, 230, 230);
+    font-size: 14px;
+}
+
+.tab-bar .tab .tab-img {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+}
+
+.tab-bar .tab .tab-title {
+    flex: 1;
+    text-align: left;
+    
+    white-space: nowrap;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, white 80%, transparent 100%);
+}
+
+.tab-bar .tab .tab-close {
+    width: 16px;
+    height: 16px;
+
+    margin-left: auto;
+    font-size: 16px;
+
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+
+    transition: background 0.2s ease;
+}
+
+.tab-bar .tab .tab-close:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.tab-bar .tab-close-all {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+
+    height: 30px;
+    width: 30px;
+
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+
+    color: rgb(230, 230, 230);
+    font-size: 20px;
+
+    transition: background 0.2s ease;
+}
+
+.tab-bar .tab-close-all:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* 整个搜索工具列 */
+.search-bar{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    height: 35px;
+    padding: 4px 4px;
+    
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.1);
+
+}
+
+/* 左右侧图标按钮 */
+.icon-btn{
+    display:grid;
+    place-items:center;
+
+    width: 32px;
+    height: 32px;
+
+    border:none;
+    border-radius: 50%;
+    background:transparent;
+
+    color:rgba(240, 240, 240, 0.9);
+    font-size:14px;
+    font-weight: 800;
+
+    transition:background .2s ease;
+}
+
+.icon-btn:hover{
+    background:rgba(255, 255, 255, 0.1);
+}
+
+/* 输入框 */
+.search-box{
+    display: flex;
+    flex: 1;
+    align-items: center;
+    gap:8px;
+
+    height:32px;
+    padding: 0 5px;
+
+    background:rgba(220, 220, 220, 0.2);
+    border-radius:16px;
+}
+
+.site-badge{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 25px;
+    height: 25px;
+    font-size: 18px;
+
+    border-radius:50%;
+    background:rgba(255,255,255,.22);
+    color:rgba(240, 240, 240, 0.9);
+
+    cursor: default;
+}
+
+/* 输入框本体 */
+.search-box input{
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+
+    border: none;
+    outline: none;
+    background: transparent;
+
+    color: rgba(240, 240, 240, 0.9);
+    font-size: 16px;
+}
+
+.bookmark{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    width: 25px;
+    height: 25px;
+    
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+    color: rgba(240, 240, 240, 0.9);
+    font-size: 18px;
+    font-weight: 800;
+
+    cursor: default;
+
+    transition:background .2s ease;
+}
+
+.bookmark:hover{
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* 分隔线 */
+.sep{
+    width: 2px;
+    height: 20px;
+    background:rgba(255, 255, 255, 0.2);
+}
+
+/* 头像 */
+.search-bar .avatar {
+    width: 20px;
+    height: 20px;
+
+    border-radius: 50%;
+    padding: 5px;
+
+    background: rgba(255, 255, 255, 0.1);
+    transition: background 0.2s ease;
+}
+
+.search-bar .avatar:hover {
+    background: rgba(255, 255, 255, 0.3);
 }
