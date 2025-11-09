@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="./style/style.css">
 </head>
 <body>
-    <div class="statusbar">
+    <header class="statusbar">
         <div class="left-group">
             <span class="star">✦</span>
             <div class="left-info">
@@ -15,15 +15,55 @@
         </div>
 
         <div class="center-group">
-            <div class="live-block"></div>
-            <div class="desktop-preview"></div>
-            <div class="time-tools"></div>
+            <div class="live-block">
+                <div class="system-items">
+                    <img class="ram-info-ico" src="./images/ram-info.ico" style="--value:48">
+                    <span class="ram-info-rext">48</span>
+
+                    <img class="swap-info-ico" src="./images/swap-info.ico" style="--value:7">
+                    <span class="swap-info-text">7</span>
+
+                    <img class="cpu-info-ico" src="./images/cpu-info.ico" style="--value:10">
+                    <span class="cpu-info-text">10</span>
+                </div>
+                <div class="media-items">
+                    <img class="media-info-ico" src="./images/media-info.ico" style="--value:100">
+                    <span class="media-info-rext">未完成の歌 · Wuthering Waves</span>
+                </div>
+            </div>
+            <div class="desktop-preview">
+                <img src="./images/google.ico" active="on">
+                <img src="./images/google.ico">
+                <img src="./images/vscode.ico">
+                <img src="./images/vscode.ico">
+                <img src="./images/dot.ico">
+                <img src="./images/dot.ico">
+                <img src="./images/dot.ico">
+            </div>
+            <div class="time-tools">
+                <span class="clock-text"><span>15:08</span> · Sun, 09/11</span>
+                <img class="tool-snap" src="./images/tool-snap.ico">
+                <img class="tool-record" src="./images/tool-record.ico">
+                <span class="tool-battery">100</span>
+            </div>
         </div>
         
         <div class="right-group">
-
+            <img class="keyboard" src="./images/keyboard.ico">
+            <img src="./images/dot.ico">
+            <div class="system-ctl">
+                <img src="./images/wifi.ico">
+                <img src="./images/bluetooth.ico">
+            </div>
         </div>
-    </div>
+    </header>
+
+    <main class="main-layout">
+        <section class="panel" style="--col:1; --row:1; --w:8; --h:16;">A</section>
+        <section class="panel" style="--col:9; --row:1; --w:8; --h:8;">B</section>
+        <section class="panel" style="--col:9; --row:9; --w:4; --h:8;">C</section>
+        <section class="panel" style="--col:13; --row:9; --w:4; --h:8;">D</section>
+    </main>
 
 
     <script src="./script/script.js"></script>
