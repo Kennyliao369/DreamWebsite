@@ -107,15 +107,16 @@ function initCurriculumControls() {
 
 function initProfileControls() {
     const inside = document.querySelector(".inside-img");
-    inside.style.opacity = "0";
-    inside.onload = () => {
-        inside.style.opacity = "1";
-    }
-
     const cover = document.querySelector(".cover-img");
     const nameText  = document.querySelector(".name-text");
     const areas = document.querySelectorAll('map[name="image-map"] area');
+    
+    inside.style.opacity = "0";
+    cover.onload = () => {
+        inside.style.opacity = "1";
+    }
 
+ 
     areas.forEach(area => {
         area.addEventListener("mouseenter", () => {
             cover.style.opacity = "0";
