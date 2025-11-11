@@ -1,9 +1,9 @@
 const images = [
-    "./images/my-photo1.jpg",
-    "./images/my-photo2.jpg",
-    "./images/my-photo3.jpg",
-    "./images/my-photo4.jpg",
-    "./images/my-photo5.jpg"
+    "./images/my-photo1.jpeg",
+    "./images/my-photo2.jpeg",
+    "./images/my-photo3.jpeg",
+    "./images/my-photo4.jpeg",
+    "./images/my-photo5.jpeg"
 ];
 
 let index = 0;
@@ -35,7 +35,7 @@ playBtn.addEventListener("click", () => {
     playBtn.classList.toggle("playing");
 });
 
-  updateCover();
+updateCover();
 
 
 /* ===<(Canva)>=== */
