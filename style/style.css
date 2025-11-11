@@ -770,6 +770,7 @@ body {
 .profile .inside-img {
     object-fit: cover;
     display: block;
+    opacity: 0;
 }
 
 /* 第二張圖片（覆蓋用） */

@@ -107,26 +107,31 @@ function initCurriculumControls() {
 
 function initProfileControls() {
     const cover = document.querySelector(".cover-img");
+    const inside = document.querySelector(".inside-img");
     const nameText  = document.querySelector(".name-text");
     const areas = document.querySelectorAll('map[name="image-map"] area');
 
     areas.forEach(area => {
         area.addEventListener("mouseenter", () => {
             cover.style.opacity = "0";
+            inside.style.opacity = "1";
             nameText.style.opacity = "1";
         });
         area.addEventListener("click", () => {
             cover.style.opacity = "1";
+            inside.style.opacity = "1";
             nameText.style.opacity = "0";
         });
     });
 
     cover.addEventListener("mouseenter", () => {
         nameText.style.opacity = "1";
+        inside.style.opacity = "1";
         cover.style.opacity = "0";
     });
     cover.addEventListener("mouseleave", () => {
         nameText.style.opacity = "0";
         cover.style.opacity = "1";
+        inside.style.opacity = "1";
     });
 }
