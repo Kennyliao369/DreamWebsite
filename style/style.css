@@ -1,6 +1,6 @@
 /* 清除默认边距，加入桌布 */
 body {
-    background-image: url("../images/RollingWaves.jpg");
+    background-image: url("../images/RollingWaves.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
