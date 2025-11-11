@@ -32,13 +32,13 @@
                 </div>
             </div>
             <div class="desktop-preview">
-                <img src="./images/google.ico" active="yes">
-                <img src="./images/google.ico">
-                <img src="./images/vscode.ico">
-                <img src="./images/vscode.ico">
-                <img src="./images/dot.ico">
-                <img src="./images/dot.ico">
-                <img src="./images/dot.ico">
+                <a href="./page1.html"><img src="./images/google.ico"></a>
+                <a href="./page2.html"><img src="./images/google.ico"></a>
+                <a href="./page3.html" active="yes"><img src="./images/vscode.ico"></a>
+                <a href="./page4.html"><img src="./images/vscode.ico"></a>
+                <a href="./page5.html"><img src="./images/dot.ico"></a>
+                <a href="./page6.html"><img src="./images/dot.ico"></a>
+                <a href="./page7.html"><img src="./images/dot.ico"></a>
             </div>
             <div class="time-tools">
                 <span class="clock-text"><span>15:08</span> · Sun, 09/11</span>
@@ -59,7 +59,7 @@
     </header>
 
     <main class="main-layout">
-        <section class="panel" style="--col:1; --row:1; --w:16; --h:16;">
+        <section class="panel" style="--col:1; --row:1; --w: 6; --h:16;">
         <main class="browser">
             <nav class="tab-bar">
                 <button class="tab-menu">˅</button>
@@ -89,46 +89,70 @@
             </div>
             
             <main class="browser-body">
-                <nav class="left-bar">
-                    <button data-page="about"><img src="./images/contents.ico"><span>About This Theme</span></button>
-                    <button data-page="why"><img src="./images/contents.ico"><span>Why I Choose This Theme?</span></button>
-                    <button data-page="features"><img src="./images/contents.ico"><span>Theme Features</span></button>
-                    <button data-page="message"><img src="./images/contents.ico"><span>Message from Creator</span></button>
-                    <button data-page="image"><img src="./images/contents.ico"><span>Image Source</span></button>
+                <div class="player-card">
+                    <img class="cover" src="" alt="Album cover"/>
 
-                    <button class="left-bar-end" data-page="profile"><img src="./images/me-small-nbg.ico"><span>KennyCS</span></button>
-                </nav>
-                <section class="page-content">
+                    <div class="progress">
+                    <span class="time current">0:05</span>
+                    <input id="seek" type="range" min="0" max="279" value="5" step="1" aria-label="Seek" />
+                    <span class="time total">-5:20</span>
+                    </div>
 
-                </section>
+                    <div class="controls">
+                        <button class="btn icon" data-action="prev" title="Previous" aria-label="Previous">
+                            <svg viewBox="0 0 24 24"><path d="M6 18V6h2v12H6zm3-6 9 6V6l-9 6z"/></svg>
+                        </button>
+
+                        <button class="btn icon primary" data-action="play" title="Play/Pause" aria-label="Play">
+                            <svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
+                        </button>
+
+                        <button class="btn icon" data-action="next" title="Next" aria-label="Next">
+                            <svg viewBox="0 0 24 24"><path d="M16 6h2v12h-2zM6 6l9 6-9 6V6z"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+            </main>
+        </main>
+        </section>
+
+        <section class="panel" style="--col:7; --row:1; --w:10; --h:16;">
+        <main class="browser">
+            <nav class="tab-bar">
+                <button class="tab-menu">˅</button>
+                <button class="tab" active="yes">
+                    <img class="tab-img" src="./images/linux.ico">
+                    <span class="tab-title">About This Theme</span>
+                    <span class="tab-close">☓</span>
+                </button>
+                <button class="tab-close-all">☓</button>
+            </nav>
+
+            <div class="search-bar">
+                <button class="icon-btn">←</button>
+                <button class="icon-btn">→</button>
+                <button class="icon-btn">↻</button>
+                <form class="search-box" onsubmit="return ;">
+                    <span class="site-badge">ⓘ</span>
+                    <input type="text" placeholder="Search or type a URL" />
+                    <button class="bookmark">☆</button>
+                </form>
+                <button class="icon-btn">⋯</button>
+                <div class="sep"></div>
+                <button class="icon-btn">⬇</button>
+                <div class="sep"></div>
+                <img class="avatar" src="./images/me-small-nbg.ico">
+                <button class="icon-btn">⋯</button>
+            </div>
+            
+            <main class="browser-body">
+                <canvas id="myCanvas"></canvas>
             </main>
         </main>
         </section>
     </main>
 
-    <script>
-        const content = document.querySelector(".page-content");
-
-        function showPage(name) {
-            content.innerHTML = pages[name];
-        }
-
-        document.querySelectorAll(".left-bar button").forEach(btn => {
-            btn.addEventListener("click", () => {
-                showPage(btn.dataset.page);
-            });
-        });
-
-        const pages = {
-            about:    "<h1>About This Theme</h1><p>你的说明内容...</p>",
-            why:      "<h1>Why I Choose This Theme?</h1><p>你的说明内容...</p>",
-            features: "<h1>Theme Features</h1><p>你的说明内容...</p>",
-            message:  "<h1>Message from Creator</h1><p>你的说明内容...</p>",
-            image:    "<h1>Image Source</h1><p>你的说明内容...</p>",
-            profile:  "<h1>KennyCS</h1><p>你的自我介绍内容...</p>"
-        };
-
-        showPage("about");
-    </script>
+    <script src="./script/page3.js"></script>
 </body>
 </html>

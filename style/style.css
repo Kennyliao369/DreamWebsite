@@ -197,29 +197,38 @@ body {
 
     height: 26px;
     min-width: 0px;
-    padding: 0 4px;
+    padding: 0 2px;
     
     background: rgba(100, 100, 100, 0.4);
     border-radius: 12px;
 }
 
 /* 桌面预览图标 */
-.desktop-preview img {
+.desktop-preview a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 16px;
     height: 16px;
 
     border-radius: 50%;
+    border: none;
+    background: transparent;
     
     padding: 3px;
 
     cursor: pointer;
 }
 
-.desktop-preview img[active="yes"] {
+.desktop-preview a[active="yes"] {
     cursor: default;
     background: rgba(230, 230, 240, 0.9);
 }
 
+.desktop-preview a img {
+    width: 16px;
+    height: 16px;
+}
 
 /* 时钟小组件 - 背景 */
 .time-tools {
@@ -723,8 +732,230 @@ body {
     padding: 20px;
 }
 
+.page-content h2 {
+    text-align: center;
+}
+
 .page-content p {
     text-align: left;
     font-size: large;
     padding: 0 15% 0 15%;
 }
+
+
+.page-content .profile {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+}
+
+
+.profile .whole-img {
+    width: 500px;
+    aspect-ratio: 1/1;
+    margin: 10px;
+    background:rgba(0, 0, 0, 0.3);
+    border:1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter:blur(6px);
+
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+}
+
+/* 原始圖片 */
+.profile .inside-img {
+    object-fit: cover;
+    display: block;
+}
+
+/* 第二張圖片（覆蓋用） */
+.profile .cover-img {
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+    opacity: 1;
+    transition: opacity 0.6s ease;
+}
+
+
+.whole-img .name-text {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    font-size: 32px;
+    bottom: 15%;  
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 0 4px rgba(0,0,0,0.5);
+    pointer-events: none;
+    opacity: 0;
+
+    transition: opacity 0.2s ease;
+}
+
+map[name="image-map"] area {
+    cursor: help;
+}
+
+.curriculum {
+    align-self: center;
+}
+
+.curriculum .controls {
+    margin-bottom: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.curriculum button, .curriculum input[type="color"] {
+    height: 32px;
+    padding: 0 14px;
+
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 14px;
+    font-weight: 500;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    transition: background 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
+}
+
+.curriculum table.stylable {
+    width: 300px;
+    border-collapse: separate;  
+    border-spacing: 4px;
+    border: 2px solid #333; 
+}
+
+.curriculum table.stylable th, table.stylable td {
+    border: 1px solid #555;
+    padding: 6px 10px;
+    text-align: center;
+}
+
+.curriculum table.stylable thead th {
+    background: rgba(242, 242, 242, 0.4); 
+}
+
+.curriculum button:hover, .curriculum input[type="color"]:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+
+/* 毛玻璃卡片 */
+.player-card {
+    width: 100%;
+    padding: 30px;
+    margin: 50px;
+
+    border-radius: 22px;
+
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+}
+
+
+/* 封面 */
+.player-card .cover {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 18px;
+    display: block;
+}
+
+/* 进度条 */
+.progress {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+
+.time {
+    font-size: 12px;
+    opacity: 0.8;
+}
+.progress input[type="range"] {
+    flex: 1;
+}
+
+/* 控制按钮（毛玻璃） */
+.btn.icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.15);
+
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+
+    transition: background .2s, transform .15s;
+}
+.btn.icon:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+}
+
+.player-card .controls {
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+}
+
+.btn.primary {
+    width: 60px;
+    height: 60px;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.25);
+}
+
+/* SVG icon */
+.btn svg {
+    width: 26px;
+    height: 26px;
+    fill: #fff;
+    opacity: 0.95;
+}
+
+
+#myCanvas {
+    width: 100%;
+    height: 100%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
